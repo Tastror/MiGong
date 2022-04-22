@@ -1,0 +1,52 @@
+# Project: Programming Tales
+# Makefile created by Embarcadero Dev-C++ 6.3
+
+CPP      =  -D__DEBUG__
+CC       =  -D__DEBUG__
+WINDRES  = 
+OBJ      = SDLQuickLoad.o main.o MainLoop.o TextureLayer.o Character.o Scenery.o Button.o Props.o LoadMap.o
+LINKOBJ  = SDLQuickLoad.o main.o MainLoop.o TextureLayer.o Character.o Scenery.o Button.o Props.o LoadMap.o
+LIBS     = -L"D:/Library/SDLlib/lib" -L"D:/Library/SDLlib" -static-libgcc -g3 -I D:/Library/SDLlib/include/SDL2 -L D:/Library/SDLlib/lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer
+INCS     = 
+CXXINCS  = -I"D:/Library/SDLlib/include"
+BIN      = "Programming Tales.exe"
+CXXFLAGS = $(CXXINCS) -g3 -std=c++17 -std=c99
+CFLAGS   = $(INCS) -g3 -std=c++17 -std=c99
+DEL      = C:\Program Files (x86)\Embarcadero\Dev-Cpp\DevCpp.exe INTERNAL_DEL
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+SDLQuickLoad.o: SDLQuickLoad.cpp
+	$(CPP) -c SDLQuickLoad.cpp -o SDLQuickLoad.o $(CXXFLAGS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+MainLoop.o: MainLoop.cpp
+	$(CPP) -c MainLoop.cpp -o MainLoop.o $(CXXFLAGS)
+
+TextureLayer.o: TextureLayer.cpp
+	$(CPP) -c TextureLayer.cpp -o TextureLayer.o $(CXXFLAGS)
+
+Character.o: Character.cpp
+	$(CPP) -c Character.cpp -o Character.o $(CXXFLAGS)
+
+Scenery.o: Scenery.cpp
+	$(CPP) -c Scenery.cpp -o Scenery.o $(CXXFLAGS)
+
+Button.o: Button.cpp
+	$(CPP) -c Button.cpp -o Button.o $(CXXFLAGS)
+
+Props.o: Props.cpp
+	$(CPP) -c Props.cpp -o Props.o $(CXXFLAGS)
+
+LoadMap.o: LoadMap.cpp
+	$(CPP) -c LoadMap.cpp -o LoadMap.o $(CXXFLAGS)
