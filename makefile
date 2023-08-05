@@ -2,16 +2,8 @@ cc := g++
 cflags := -std=c++11 -Wall -static-libgcc -mwindows
 ldlibs :=
 
-program_lib_prefix := D:/Library/msys64/mingw64
-program_include_dirs := $(program_lib_prefix)/include/SDL2
-program_libraries_dirs := $(program_lib_prefix)/lib
-cflags += $(foreach include, $(program_include_dirs), -I$(include))
-ldlibs += -L$(program_libraries_dirs)
-ldlibs += -lmingw32
-ldlibs += -lfreetype
-ldlibs += -lSDL2_ttf
-ldlibs += -lSDL2main
-ldlibs += -lSDL2
+cflags += `pkg-config --cflags SDL2`
+ldlibs += `pkg-config --libs-only-L SDL2` -lmingw32 -lfreetype -lSDL2_ttf -lSDL2main -lSDL2
 
 source_dir := source
 build_dir := build
